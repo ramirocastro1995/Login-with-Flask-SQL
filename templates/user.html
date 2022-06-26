@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title%} User {% endblock %}
+
+{% block content%}
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p>{{msg}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+<form action = "user" method = "POST">
+    <input type = "email" name = "email" placeholder = "Enter email" value={{email if email}}/>
+    <input type = "submit" value = "submit"/>
+
+<form action="{{ url_for('delete') }}">
+    <input type="submit" value="Delete my record" >
+</form>
+    {% endblock %}
